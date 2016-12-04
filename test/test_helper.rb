@@ -11,5 +11,12 @@ class ActiveSupport::TestCase
     !session[:user_id].nil?
   end
 
+  # Returns the hash digest of the given string.
+  def User.digest(string)
+    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+                                                  BCrypt::Engine.cost
+    BCrypt::Password.create(string, cost: cost)
+  end
+
   # Add more helper methods to be used by all tests here...
 end
