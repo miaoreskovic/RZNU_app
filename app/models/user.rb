@@ -12,4 +12,6 @@ class User < ApplicationRecord
 	def feed
     	microposts
   	end
+
+  	
 end
