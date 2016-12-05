@@ -18,6 +18,11 @@
               <li>
                 <%= link_to "Log out", logout_path, method: "delete" %>
               </li>
+              <li>
+                <% if !current_user?(@user) %>
+                  <%= link_to "Delete", erase_path, method: "delete" %>
+                  <% end %>
+              </li>
             </ul>
           </li>
         <% else %>
